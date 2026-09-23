@@ -59,7 +59,7 @@ src/
 public/figma/        # Design reference images
 ```
 
-## Decisions
+## Implementation Decisions
 
 - **State:** state is lifted into `<BundleBuilder />` using `useState`. The app is small, so I did not add Context or a reducer.
 - **Variant quantities:** quantities are stored in a flat map per step, keyed by `productId-colorId` (for example `cameras: { 'wyze-cam-v4-white': 1 }`). Products without colors use just `productId`. The cards, the review panel, the "N selected" counter and the total all read from this one map.
@@ -68,7 +68,7 @@ public/figma/        # Design reference images
 - **Responsive layout:** plain CSS media queries for desktop, tablet and phone.
 - **Shared controls:** `<QuantityControl />` is used by both the product cards and the review panel.
 
-## Tradeoffs / not finished
+## Implementation Notes
 
 - **Pan v3 pricing:** Wyze Cam Pan v3 shows $34.98 on the card but $23.99 per unit in the review panel. The design's review totals only add up with the lower price, so `products.json` has separate `reviewPrice` / `reviewOldPrice` values.
 - **Placeholder images:** some images (Black/Grey variants, doorbell, hub, motion sensor, microSD) are simple placeholder SVGs, not the real photos from the design.
