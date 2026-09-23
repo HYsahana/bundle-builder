@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Rotating Cylindrical Base -->
+  <ellipse cx="100" cy="165" rx="35" ry="12" fill="#e2e8f0"/>
+  <rect x="65" y="130" width="70" height="35" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <ellipse cx="100" cy="130" rx="35" ry="10" fill="#f1f5f9"/>
+  <!-- Pivot Arm -->
+  <path d="M78 130 L78 95 Q78 90 85 90 L115 90 Q122 90 122 95 L122 130 Z" fill="#e2e8f0"/>
+  <!-- Cube Head (White) -->
+  <rect x="68" y="55" width="64" height="65" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <circle cx="100" cy="85" r="24" fill="#18181b"/>
+  <circle cx="100" cy="85" r="12" fill="#09090b"/>
+  <circle cx="97" cy="82" r="3.5" fill="#38bdf8"/>
+  <!-- Pan 360 arrow graphic -->
+  <path d="M50 150 Q40 160 55 170" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>

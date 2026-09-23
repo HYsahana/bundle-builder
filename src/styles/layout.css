@@ -1,0 +1,105 @@
+.bundle-builder-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 5rem;
+}
+
+/* Header with "Let's get started!" - only shown on phone */
+.bundle-builder-header {
+  display: none;
+  text-align: center;
+  margin-bottom: 2rem; /* increased space above step 1 */
+}
+
+.bundle-builder-main-title {
+  font-size: 2.25rem;
+  font-weight: 800; /* Extra bold */
+  color: var(--color-text-main);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+/* ==========================================================================
+   Desktop Layout (>= 1200px)
+   2 columns: Left = steps, Right = review panel
+   ========================================================================== */
+@media (min-width: 1200px) {
+  .bundle-builder-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 420px;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .bundle-builder-main {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .bundle-builder-sidebar {
+    position: sticky;
+    top: 2rem;
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Tablet Layout (768px to 1199px)
+   1 column overall. Steps on top, review panel is a wide box below.
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .bundle-builder-container {
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .bundle-builder-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .bundle-builder-main {
+    width: 100%;
+  }
+
+  .bundle-builder-sidebar {
+    width: 100%;
+    position: static;
+  }
+}
+
+/* ==========================================================================
+   Phone Layout (<= 767px)
+   1 column. Title "Let's get started!" at the top. Review panel below.
+   ========================================================================== */
+@media (max-width: 767px) {
+  .bundle-builder-container {
+    padding: 1.25rem 0.875rem 3rem;
+  }
+
+  /* Show title only on phone */
+  .bundle-builder-header {
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+
+  .bundle-builder-main-title {
+    font-size: 1.75rem;
+  }
+
+  .bundle-builder-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .bundle-builder-main {
+    width: 100%;
+  }
+
+  .bundle-builder-sidebar {
+    width: 100%;
+    position: static;
+  }
+}

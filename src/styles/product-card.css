@@ -1,0 +1,667 @@
+.sensors-grid,
+.extras-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.product-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  /* 8-10px radius */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.product-card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Selected state: 2px purple border when selected */
+.product-card--selected {
+  border: 2px solid var(--color-primary);
+}
+
+.product-card--selected:hover {
+  border-color: var(--color-primary);
+}
+
+/* "Save X%" badge: floating inside the top-left corner */
+.product-card-badge {
+  position: absolute;
+  top: 11px;
+  left: 11px;
+  background-color: var(--color-badge-bg);
+  color: var(--color-badge-text);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  z-index: 2;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+/* Left Column: Image */
+.product-card-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card-image-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.product-card-image {
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover .product-card-image {
+  transform: scale(1.03);
+}
+
+/* Right Column: Content */
+.product-card-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card-info {
+  margin-bottom: 0.65rem;
+}
+
+.product-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin-bottom: 0.15rem;
+  line-height: 1.2;
+}
+
+.product-card-description {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.product-card-learn-more {
+  display: inline-block;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.15s ease;
+}
+
+.product-card-learn-more:hover {
+  color: var(--color-primary-hover);
+}
+
+.product-card-learn-more:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Color Chips: each chip shows small product image plus label */
+.product-card-colors {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.color-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  min-height: 24px;
+  padding: 2px 6px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: #ffffff;
+  color: var(--color-text-main);
+  font-size: 0.6875rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.color-chip-img {
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
+  display: block;
+}
+
+.color-chip:hover {
+  border-color: var(--color-primary);
+}
+
+.color-chip:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Selected chip: purple outline */
+.color-chip--active {
+  border: 1px solid var(--color-primary) !important;
+  font-weight: 600;
+}
+
+.color-label {
+  line-height: 1;
+}
+
+/* Footer: Stepper & Pricing */
+.product-card-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.4rem;
+}
+
+/* Stepper: small square buttons with light background, disabled ones greyed */
+.stepper-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepper-btn {
+  width: 28px;
+  height: 28px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  background-color: #f3f4f6;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  touch-action: manipulation;
+}
+
+.stepper-btn:hover:not(:disabled) {
+  background-color: #e5e7eb;
+  color: var(--color-text-main);
+}
+
+.stepper-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -1px;
+}
+
+.stepper-btn:disabled {
+  background-color: transparent;
+  border: 2px solid #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.stepper-value {
+  min-width: 16px;
+  text-align: center;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+/* Pricing: old price in red on top, current price normal weight in grey */
+.product-card-pricing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.product-card-old-price {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-price-strike);
+  text-decoration: line-through;
+  line-height: 1;
+  letter-spacing: 0.6px;
+  margin-bottom: 0;
+}
+
+.product-card-price {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #4b5563;
+  line-height: 1;
+  letter-spacing: 0.6px;
+}
+
+/* Selected State Overrides */
+.product-card--selected .product-card-price {
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   DESKTOP (>= 1200px): Exact Image 2 Horizontal Card Layout
+   ========================================================================== */
+@media (min-width: 1200px) {
+  .cameras-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    /* larger gap (~24px) between cards */
+    width: 100%;
+  }
+
+  /* Center the 5th card in the last row */
+  .cameras-grid>.product-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 0.75rem);
+    justify-self: center;
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .product-card-left {
+    width: 32%;
+    flex-shrink: 0;
+  }
+
+  .product-card-image-wrap {
+    height: 110px;
+  }
+
+  .product-card-image {
+    max-height: 105px;
+    max-width: 100%;
+  }
+
+  .product-card-right {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* ==========================================================================
+   TABLET (768px to 1199px)
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 1199px) {
+
+  /* ---- Cameras: flexible wrapping grid (portrait cards) ---- */
+  .cameras-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+  }
+  /* (Removed scrollbar styles since we now wrap instead of scroll) */
+
+  /* Override grid-specific last-child rule — not needed in flex row */
+  .cameras-grid>.product-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    max-width: none;
+    margin: 0;
+  }
+
+  /* Camera portrait cards: flexible width, exactly fill container, wrap gracefully */
+  .cameras-grid>.product-card {
+    flex: 1 1 140px;
+    min-width: 140px;
+    max-width: 220px; /* Prevent them from becoming absurdly large on wrap */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.875rem 0.75rem;
+    height: auto;
+  }
+
+  .cameras-grid .product-card-left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  .cameras-grid .product-card-image-wrap {
+    height: 100px;
+    margin-bottom: 0.625rem;
+    width: 100%;
+  }
+
+  .cameras-grid .product-card-image {
+    max-height: 96px;
+    max-width: 100%;
+  }
+
+  .cameras-grid .product-card-right {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .cameras-grid .product-card-title {
+    font-size: 0.875rem;
+  }
+
+  .cameras-grid .product-card-description {
+    font-size: 0.75rem;
+    line-height: 1.25;
+  }
+
+  .cameras-grid .product-card-footer {
+    margin-top: auto;
+    padding-top: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .cameras-grid .product-card-pricing {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.35rem;
+  }
+
+  .cameras-grid .product-card-badge {
+    font-size: 0.625rem;
+    padding: 2px 5px;
+    top: 8px;
+    left: 8px;
+  }
+
+  /* ---- Sensors / Extras: vertical stacked list with column cards ---- */
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    height: 100%;
+  }
+
+  .product-card-left {
+    width: 100%;
+  }
+
+  .product-card-image-wrap {
+    height: 120px;
+    margin-bottom: 1rem;
+  }
+
+  .product-card-image {
+    max-height: 110px;
+  }
+
+  .product-card-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .product-card-title {
+    font-size: 1rem;
+  }
+
+  .product-card-description {
+    font-size: 0.8125rem;
+  }
+
+  .color-chip {
+    padding: 2px 6px;
+    font-size: 0.6875rem;
+  }
+
+  .product-card-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+}
+
+/* ==========================================================================
+   PHONE (<= 767px): Cameras 2-col grid; sensors/extras horizontal cards
+   ========================================================================== */
+@media (max-width: 767px) {
+
+  /* ---- Cameras: 2-column portrait grid (no horizontal scroll) ---- */
+  .cameras-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  /* 5th card (odd last): full-width so it doesn't look half-sized */
+  .cameras-grid > .product-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 100%;
+    justify-self: stretch;
+    /* Keep portrait layout but image + details side-by-side for full-width card */
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* Full-width last card: image on left, content on right */
+  .cameras-grid > .product-card:last-child:nth-child(odd) .product-card-left {
+    width: 100px;
+    flex-shrink: 0;
+    margin-bottom: 0;
+  }
+
+  .cameras-grid > .product-card:last-child:nth-child(odd) .product-card-image-wrap {
+    height: 90px;
+    width: 100px;
+    margin-bottom: 0;
+  }
+
+  .cameras-grid > .product-card:last-child:nth-child(odd) .product-card-right {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Camera portrait cards (rows 1-2): column layout */
+  .cameras-grid > .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.75rem;
+    height: 100%;
+    gap: 0.375rem;
+  }
+
+  .cameras-grid .product-card-left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.25rem;
+  }
+
+  .cameras-grid .product-card-image-wrap {
+    height: 88px;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .cameras-grid .product-card-image {
+    max-height: 84px;
+    max-width: 100%;
+  }
+
+  .cameras-grid .product-card-right {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .cameras-grid .product-card-title {
+    font-size: 0.8125rem;
+    line-height: 1.2;
+  }
+
+  .cameras-grid .product-card-description {
+    font-size: 0.6875rem;
+    line-height: 1.2;
+  }
+
+  .cameras-grid .color-chip {
+    padding: 1px 4px;
+    font-size: 0.5625rem;
+  }
+
+  .cameras-grid .color-chip-img {
+    width: 10px;
+    height: 10px;
+  }
+
+  /* Footer: stepper + price side-by-side, no overflow */
+  .cameras-grid .product-card-footer {
+    margin-top: auto;
+    padding-top: 0.375rem;
+    flex-direction: row;
+    align-items: center;        /* center both items vertically */
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.25rem;
+  }
+
+  /* Smaller stepper buttons inside narrow camera cards */
+  .cameras-grid .stepper-btn {
+    width: 22px;
+    height: 22px;
+    font-size: 0.75rem;
+    border-radius: 5px;
+  }
+
+  .cameras-grid .stepper-wrap {
+    gap: 4px;
+  }
+
+  .cameras-grid .stepper-value {
+    font-size: 0.75rem;
+    min-width: 12px;
+  }
+
+  /* Smaller pricing text so it fits next to the stepper */
+  .cameras-grid .product-card-old-price {
+    font-size: 0.625rem;
+    letter-spacing: 0.2px;
+  }
+
+  .cameras-grid .product-card-price {
+    font-size: 0.75rem;
+    letter-spacing: 0.2px;
+  }
+
+  .cameras-grid .product-card-badge {
+    font-size: 0.5625rem;
+    padding: 1px 4px;
+    top: 6px;
+    left: 6px;
+  }
+
+  /* ---- Sensors / Extras: horizontal cards (image left, content right) ---- */
+  .product-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    height: auto;
+  }
+
+  .product-card-left {
+    flex-shrink: 0;
+    width: 64px;
+    margin-bottom: 0;
+  }
+
+  .product-card-image-wrap {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 0;
+  }
+
+  .product-card-image {
+    max-height: 60px;
+    max-width: 64px;
+  }
+
+  .product-card-right {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card-info {
+    margin-bottom: 0.25rem;
+  }
+
+  .product-card-title {
+    font-size: 0.875rem;
+    margin-bottom: 0.125rem;
+  }
+
+  .product-card-description {
+    font-size: 0.75rem;
+    line-height: 1.25;
+  }
+
+  .product-card-colors {
+    margin-bottom: 0.375rem;
+  }
+
+  .color-chip {
+    padding: 2px 5px;
+    font-size: 0.625rem;
+  }
+
+  .product-card-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 0.375rem;
+    margin-top: 0;
+  }
+
+  .product-card-badge {
+    top: 8px;
+    left: 8px;
+    font-size: 0.625rem;
+    padding: 2px 5px;
+  }
+}

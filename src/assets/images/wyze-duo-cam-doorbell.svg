@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Tall Doorbell Body -->
+  <rect x="55" y="30" width="50" height="140" rx="10" fill="#18181b" stroke="#27272a" stroke-width="2"/>
+  <!-- Top Camera -->
+  <circle cx="80" cy="55" r="12" fill="#09090b" stroke="#3f3f46" stroke-width="1.5"/>
+  <circle cx="80" cy="55" r="5" fill="#38bdf8"/>
+  <!-- Bottom Downward Camera -->
+  <ellipse cx="80" cy="90" rx="9" ry="7" fill="#09090b" stroke="#3f3f46" stroke-width="1.5"/>
+  <ellipse cx="80" cy="90" rx="4" ry="3" fill="#38bdf8"/>
+  <!-- Doorbell Button with illuminated cyan/blue LED ring -->
+  <circle cx="80" cy="135" r="16" fill="#09090b" stroke="#00b4d8" stroke-width="3"/>
+  <circle cx="80" cy="135" r="10" fill="#27272a"/>
+  <!-- Chime Unit (Side Accessory) -->
+  <rect x="115" y="70" width="32" height="70" rx="6" fill="#18181b" stroke="#3f3f46" stroke-width="1.5"/>
+  <circle cx="131" cy="105" r="8" fill="#27272a"/>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <filter id="sdShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-opacity="0.2" flood-color="#000000" />
+    </filter>
+  </defs>
+
+  <!-- MicroSD Card Body -->
+  <path d="M22 18 L64 18 L78 32 L78 82 L22 82 Z" fill="#1c1917" stroke="#292524" stroke-width="2" filter="url(#sdShadow)"/>
+
+  <!-- Left notch -->
+  <path d="M22 42 L26 44 L26 54 L22 56 Z" fill="#292524"/>
+
+  <!-- Top notch -->
+  <path d="M64 18 L78 32 L72 32 L64 24 Z" fill="#0c0a09"/>
+
+  <!-- Gold Contacts -->
+  <g fill="#eab308">
+    <rect x="28" y="22" width="5" height="12" rx="1"/>
+    <rect x="36" y="22" width="5" height="12" rx="1"/>
+    <rect x="44" y="22" width="5" height="12" rx="1"/>
+    <rect x="52" y="22" width="5" height="12" rx="1"/>
+  </g>
+
+  <!-- Red Accent Bar -->
+  <rect x="24" y="44" width="52" height="14" fill="#dc2626"/>
+  <text x="50" y="54" font-size="8" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">256 GB</text>
+
+  <!-- Brand text -->
+  <text x="50" y="70" font-size="10" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">WYZE</text>
+  <text x="50" y="78" font-size="6" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" fill="#a8a29e" text-anchor="middle">MicroSDXC</text>
+</svg>

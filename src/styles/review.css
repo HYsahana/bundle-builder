@@ -1,0 +1,735 @@
+.review-panel-wrapper {
+  width: 100%;
+}
+
+.review-panel-meta {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.review-panel {
+  background-color: var(--color-bg-review);
+  /* #EDF4FF */
+  border-radius: 10px;
+  /* radius ~10px */
+  padding: 16px;
+  /* tighter padding (~16px) */
+  border: 1px solid #c2d1e9;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.review-panel-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.review-panel-left-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.review-panel-title {
+  font-size: 1.5rem;
+  /* matched larger text from image */
+  font-weight: 600;
+  /* Lighter weight heading */
+  color: var(--color-text-main);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  margin-bottom: 0.25rem;
+}
+
+.review-panel-subtitle {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.35;
+  max-width: 290px;
+}
+
+/* Thin divider under the subtitle — shown on all viewports */
+.review-subtitle-divider {
+  display: block;
+  height: 1px;
+  background-color: #d1d8e8;
+  margin-top: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Grouping */
+.review-items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.review-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #c2d1e9;
+  /* line between groups */
+}
+
+.review-group:nth-last-child(2) {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.review-group-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: -0.75rem;
+}
+
+/* Rule 8: Section label is "PLAN" on desktop/tablet and "HOME MONITORING PLAN" on phone */
+.review-plan-label-desktop {
+  display: inline;
+}
+
+.review-plan-label-phone {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .review-plan-label-desktop {
+    display: none;
+  }
+
+  .review-plan-label-phone {
+    display: inline;
+  }
+}
+
+/* Item Row */
+.review-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.review-item-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  flex: 1;
+}
+
+/* Item Thumbnails: borderless white rounded squares */
+.review-item-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  background: #ffffff;
+  border: none;
+  /* borderless */
+  object-fit: contain;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.review-item-name {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-text-main);
+  line-height: 1.25;
+}
+
+.review-plan-icon-wrap {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Rule 8: "Cam" is black, "Unlimited" is purple, with Wyze shield logo */
+.plan-cam {
+  color: #111827;
+  font-weight: 700;
+}
+
+.plan-unlimited {
+  color: var(--color-primary);
+  /* #4F2FD6 */
+  font-weight: 700;
+}
+
+.review-item-right {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+/* Review Stepper: compact "− n +" */
+.review-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.review-stepper-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  background-color: #f3f4f6;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  touch-action: manipulation;
+}
+
+.review-stepper-btn:hover:not(:disabled) {
+  background-color: #e5e7eb;
+  color: var(--color-primary);
+}
+
+.review-stepper-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -1px;
+}
+
+.review-stepper-val {
+  min-width: 14px;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+/* Disabled stepper */
+.review-stepper-btn:disabled {
+  background-color: transparent;
+  border: 2px solid #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.review-stepper--disabled {
+  opacity: 0.5;
+}
+
+/* Pricing in Review: all active prices purple #4E2FD2 */
+.review-item-pricing {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  min-width: 90px;
+}
+
+.review-item-old-price {
+  font-size: 0.71875rem;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.review-item-price {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  /* #4E2FD2 */
+  line-height: 1;
+}
+
+.review-item-price--free {
+  color: var(--color-primary);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+/* Fast Shipping Row */
+.review-shipping-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0 0.5rem;
+  /* increased top padding */
+  border-top: 1px solid #c2d1e9;
+  width: 100%;
+}
+
+.review-shipping-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.review-shipping-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d9488;
+  flex-shrink: 0;
+}
+
+.review-shipping-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.review-shipping-pricing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 58px;
+}
+
+/* Footer Summary Area */
+.review-footer-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-top: 0.5rem;
+  width: 100%;
+}
+
+/* Rule 8: Guarantee badge on left, and pricing block on right */
+.review-guarantee-and-pricing {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+
+.review-guarantee-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.review-guarantee-badge-wrap {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.review-guarantee-badge-wrap:hover {
+  transform: rotate(-3deg) scale(1.04);
+}
+
+.review-guarantee-badge-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 30-day hassle-free returns - Hidden on mobile/desktop, visible on tablet */
+.review-returns-info {
+  display: none;
+}
+
+.review-returns-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 0.25rem;
+}
+
+.review-returns-text {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.35;
+  max-width: 320px;
+}
+
+/* Rule 8: Pricing Block with "as low as" tag on top, old total crossed out on left of big total */
+.review-pricing-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.review-financing-tag-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.review-financing-tag {
+  background-color: var(--color-badge-bg);
+  /* #4E2FD2 */
+  color: #ffffff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* Totals Row */
+.review-totals-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+.review-old-total {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+.review-final-total {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  /* #4F2FD6 */
+  line-height: 1;
+}
+
+/* Green Savings Banner */
+.review-savings-banner {
+  color: var(--color-success-text);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.35;
+}
+
+/* Checkout Button: full width, purple, radius 6px, subtle shadow */
+.review-checkout-btn {
+  width: 100%;
+  min-height: 44px;
+  background-color: var(--color-primary);
+  /* #4F2FD6 */
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(79, 47, 214, 0.2);
+  /* Subtle shadow */
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  touch-action: manipulation;
+}
+
+.review-checkout-btn:hover {
+  background-color: var(--color-primary-hover);
+  box-shadow: 0 4px 12px rgba(79, 47, 214, 0.3);
+  transform: translateY(-1px);
+}
+
+.review-checkout-btn:focus-visible {
+  outline: 3px solid #301799;
+  outline-offset: 3px;
+}
+
+.review-checkout-btn:active {
+  transform: translateY(1px);
+}
+
+/* Rule 9: Save for later link under Checkout */
+.review-save-later-wrap {
+  text-align: center;
+  margin-top: 0.25rem;
+}
+
+.review-save-later-btn {
+  display: inline-block;
+  min-height: 38px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-style: italic;
+  cursor: pointer;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s ease;
+  touch-action: manipulation;
+}
+
+.review-save-later-btn:hover {
+  color: var(--color-primary);
+}
+
+.review-save-later-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.review-saved-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.45rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-success-text);
+  animation: reviewFadeIn 0.25s ease-in-out;
+}
+
+.review-saved-check {
+  font-size: 0.9375rem;
+}
+
+@keyframes reviewFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   TABLET LAYOUT (768px to 1199px): Wide Review Box
+   Guarantee badge with returns text on left, total and checkout on right
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .review-panel {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .review-panel-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 2rem;
+  }
+
+  .review-footer-summary {
+    display: flex;
+    flex-direction: column;
+    border-top: none;
+    padding-top: 0;
+    height: 100%;
+    gap: 1.25rem;
+  }
+
+  .review-guarantee-and-pricing {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .review-guarantee-badge-wrap {
+    width: 110px;
+    height: 110px;
+  }
+
+  .review-returns-info {
+    display: block;
+    text-align: left;
+  }
+
+  .review-pricing-block {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .review-item-pricing {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0;
+    min-width: 58px;
+  }
+
+  .review-totals-row {
+    justify-content: flex-end;
+  }
+
+  .review-savings-banner {
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .review-checkout-btn {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   PHONE LAYOUT (<= 767px): Stacked items, badge, total, checkout
+   ========================================================================== */
+@media (max-width: 767px) {
+  .review-panel {
+    padding: 0.875rem 0.75rem;
+  }
+
+  .review-panel-meta {
+    font-size: 0.625rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .review-panel-title {
+    font-size: 1.125rem;
+    margin-bottom: 0.15rem;
+  }
+
+  /* Subtitle IS visible on mobile (matches Figma screenshot) */
+  .review-panel-subtitle {
+    display: block;
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  /* Show the thin divider after subtitle on mobile */
+  .review-subtitle-divider {
+    display: block;
+  }
+
+  .review-panel-inner {
+    gap: 0.75rem;
+  }
+
+  .review-items-container {
+    gap: 0.75rem;
+  }
+
+  .review-group {
+    gap: 0.875rem;
+    padding-bottom: 0.875rem;
+  }
+
+  .review-group-title {
+    font-size: 0.625rem;
+    margin-bottom: -0.5rem;
+  }
+
+  /* Compact item rows */
+  .review-item-row {
+    gap: 0.375rem;
+  }
+
+  .review-item-thumb {
+    width: 32px;
+    height: 32px;
+    padding: 2px;
+  }
+
+  /* Item names — let them size naturally, slightly smaller */
+  .review-item-name {
+    font-size: 0.75rem;
+  }
+
+  .review-item-right {
+    gap: 0.5rem;
+  }
+
+  /* Compact stepper on phone */
+  .review-stepper-btn {
+    width: 18px;
+    height: 18px;
+    font-size: 0.6875rem;
+    border-radius: 4px;
+  }
+
+  .review-stepper-val {
+    font-size: 0.75rem;
+    min-width: 10px;
+  }
+
+  .review-item-pricing {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0;
+    min-width: 44px;
+    text-align: right;
+  }
+
+  .review-item-price {
+    font-size: 0.8125rem;
+  }
+
+  .review-item-old-price {
+    font-size: 0.6875rem;
+  }
+
+  /* Compact shipping row */
+  .review-shipping-row {
+    padding: 0.75rem 0 0.375rem;
+  }
+
+  .review-shipping-icon-wrap {
+    width: 36px;
+    height: 36px;
+  }
+
+  .review-shipping-name {
+    font-size: 0.8125rem;
+  }
+
+  /* Footer */
+  .review-footer-summary {
+    gap: 0.65rem;
+    padding-top: 0.375rem;
+  }
+
+
+
+  .review-old-total {
+    font-size: 1rem;
+  }
+
+  .review-final-total {
+    font-size: 1.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .review-savings-banner {
+    font-size: 0.6875rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .review-checkout-btn {
+    font-size: 0.9375rem;
+    padding: 0.65rem 1rem;
+  }
+
+  .review-save-later-btn {
+    font-size: 0.75rem;
+  }
+}

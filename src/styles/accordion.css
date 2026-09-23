@@ -1,0 +1,277 @@
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.accordion-step {
+  padding: 0.5rem 0 0 0;
+  transition: all 0.2s ease;
+  width: 100%;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.accordion-step--open {
+  background-color: var(--color-bg-review); /* #EDF4FF */
+  border-radius: 10px;
+  border: 1px solid #c2d1e9;
+  padding: 1.125rem 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.accordion-step:first-child {
+  margin-top: 0;
+}
+
+/* Meta label e.g. "STEP 1 OF 4" */
+.accordion-step-meta {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+  border: none;
+  padding: 0;
+}
+
+.accordion-step--open .accordion-step-meta {
+  margin: -1.125rem -1.25rem 0.75rem -1.25rem;
+  padding: 1.125rem 1.25rem 0.5rem 1.25rem;
+  border-bottom: 1px solid #d1d5db;
+}
+
+/* Header Button */
+.accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 32px;
+  padding: 0.5rem 0 0.5rem 0;
+  border-top: 1px solid #d1d5db;
+  cursor: pointer;
+  background: transparent;
+  text-align: left;
+  transition: opacity 0.15s ease;
+}
+
+.accordion-header:hover {
+  opacity: 0.85;
+}
+
+.accordion-header:focus,
+.accordion-header:focus-visible {
+  outline: none !important;
+}
+.accordion-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.accordion-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: #f1f3f9;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+
+.accordion-step-card--open .accordion-icon-wrap {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+/* Step 1 Title: slightly larger (~24px), medium/semibold */
+.accordion-step-card--open .accordion-title {
+  font-size: 1.5rem; /* ~24px */
+  font-weight: 700; /* Bolder */
+  color: var(--color-text-main);
+  line-height: 1.3;
+}
+
+/* Steps 2-4 Titles: ~18px, medium weight */
+.accordion-title {
+  font-size: 1.125rem; /* ~18px */
+  font-weight: 500; /* Medium weight */
+  color: #111827; /* Darker text */
+  line-height: 1.3;
+}
+
+.accordion-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
+.accordion-selected-count {
+  white-space: nowrap;
+}
+
+.accordion-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Rule 6: Desktop closed steps show ONLY the arrow. Phone shows "N selected"
+   ========================================================================== */
+@media (min-width: 768px) {
+  .accordion-step:not(.accordion-step--open) .accordion-selected-count {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .accordion-selected-count {
+    display: inline !important;
+  }
+}
+
+/* Step Card */
+.accordion-step-card {
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+/* ==========================================================================
+   Open step: light blue background #EDF4FF, 10px radius, white cards inside
+   ========================================================================== */
+.accordion-step-card--open {
+  padding: 0;
+}
+
+.accordion-card-content-wrap {
+  padding: 0;
+}
+
+.accordion-step-card--open .accordion-header {
+  padding: 0;
+  border-top: none;
+}
+
+.accordion-body {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.accordion-content {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.accordion-placeholder {
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: var(--color-text-muted);
+  background-color: #ffffff;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--color-border);
+  font-size: 0.9375rem;
+}
+
+/* Next Step Button: Centered, white background, purple border */
+.accordion-next-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.75rem;
+}
+
+.accordion-next-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.75rem 3rem; /* wider padding */
+  border: 1px solid var(--color-primary); /* 1px border */
+  border-radius: 6px; /* slightly rounded */
+  background: #ffffff;
+  color: var(--color-primary);
+  font-size: 1rem; /* slightly larger text */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.accordion-next-btn:hover {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary-hover);
+}
+
+.accordion-next-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.accordion-next-btn:active {
+  transform: translateY(1px);
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  /* Closed steps: tighter vertical padding */
+  .accordion-step {
+    padding: 0.25rem 0 0 0;
+  }
+
+  /* Open step stays padded */
+  .accordion-step--open {
+    padding: 0.875rem 1rem 1.25rem;
+  }
+
+  .accordion-step--open .accordion-step-meta {
+    margin: -0.875rem -1rem 0.625rem -1rem;
+    padding: 0.875rem 1rem 0.5rem 1rem;
+  }
+
+  /* Meta label: smaller on phone */
+  .accordion-step-meta {
+    font-size: 0.625rem;
+    letter-spacing: 0.06em;
+  }
+
+  /* Closed step title: ~16px */
+  .accordion-title {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  /* Open step title: slightly larger */
+  .accordion-step-card--open .accordion-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  /* "N selected" + arrow: smaller */
+  .accordion-header-right {
+    font-size: 0.8125rem;
+    gap: 0.3rem;
+  }
+
+  /* Header padding: compact */
+  .accordion-header {
+    padding: 0.4rem 0;
+    min-height: 28px;
+  }
+
+  /* Next button: full width on phone */
+  .accordion-next-btn {
+    width: 100%;
+    padding: 0.65rem 1.5rem;
+    font-size: 0.9375rem;
+  }
+}
