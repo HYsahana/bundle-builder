@@ -80,6 +80,3 @@ public/figma/        # Design reference images
 - **Fonts:** loaded from Google Fonts, so they need an internet connection.
 - **Testing:** there are no automated tests. I checked the behavior manually at desktop, tablet and phone widths.
 
-## AI assistance
-
-I used an AI coding tool while building this. I reviewed the code and tested the behavior myself.
